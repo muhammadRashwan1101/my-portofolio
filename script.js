@@ -1,3 +1,5 @@
+const DATA = (typeof CMS_DATA !== 'undefined') ? CMS_DATA : FALLBACK_DATA;
+
 const nav = document.getElementById("nav");
       window.addEventListener("scroll", () => {
         nav.classList.toggle("scrolled", window.scrollY > 50);
