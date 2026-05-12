@@ -158,7 +158,7 @@ const CMS_DATA = {
         },
         {
           "title": "Stack",
-          "desc": "React.js · Vite · Responsive UI · Frontend Architecture · Vercel Deployment"
+          "desc": "React.js · Vite · Responsive UI · TailwindCSS · Vercel Deployment · Render Deployment · NodeJS · MongoDB · JWT Auth · Mongoose · Joi validation · Lazy loading · React framer motion"
         }
       ]
     }
@@ -230,16 +230,16 @@ const CMS_DATA = {
 const DATA = (typeof CMS_DATA !== 'undefined') ? CMS_DATA : FALLBACK_DATA;
 
 (function () {
-      if (typeof CMS_DATA === 'undefined') return; // no CMS deploy yet — use static HTML
+      if (typeof CMS_DATA === 'undefined') return; // no CMS deploy yet â use static HTML
 
       const D = CMS_DATA;
 
-      /* ── Utility: resolve "hero.name" → D.hero.name ── */
+      /* ââ Utility: resolve "hero.name" â D.hero.name ââ */
       function get(path) {
         return path.split('.').reduce((obj, k) => (obj != null ? obj[k] : undefined), D);
       }
 
-      /* ── 1. Simple text nodes ── */
+      /* ââ 1. Simple text nodes ââ */
       document.querySelectorAll('[data-cms]').forEach(function (el) {
         var val = get(el.dataset.cms);
         if (val == null) return;
@@ -247,7 +247,7 @@ const DATA = (typeof CMS_DATA !== 'undefined') ? CMS_DATA : FALLBACK_DATA;
         el.innerHTML = String(val).replace(/\n/g, '<br />');
       });
 
-      /* ── 2. href patches (email, whatsapp, github, linkedin) ── */
+      /* ââ 2. href patches (email, whatsapp, github, linkedin) ââ */
       document.querySelectorAll('[data-cms-href]').forEach(function (el) {
         var val = get(el.dataset.cmsHref);
         if (val == null) return;
@@ -257,7 +257,7 @@ const DATA = (typeof CMS_DATA !== 'undefined') ? CMS_DATA : FALLBACK_DATA;
         el.href = prefix + clean;
       });
 
-      /* ── 3. About paragraphs (about.content array → <p> tags) ── */
+      /* ââ 3. About paragraphs (about.content array â <p> tags) ââ */
       document.querySelectorAll('[data-cms-list]').forEach(function (el) {
         var arr = get(el.dataset.cmsList);
         if (!Array.isArray(arr)) return;
@@ -266,7 +266,7 @@ const DATA = (typeof CMS_DATA !== 'undefined') ? CMS_DATA : FALLBACK_DATA;
         }).join('');
       });
 
-      /* ── 4. About pillars ── */
+      /* ââ 4. About pillars ââ */
       document.querySelectorAll('[data-cms-pillars]').forEach(function (el) {
         var arr = get(el.dataset.cmsPillars);
         if (!Array.isArray(arr)) return;
@@ -280,7 +280,7 @@ const DATA = (typeof CMS_DATA !== 'undefined') ? CMS_DATA : FALLBACK_DATA;
         }).join('');
       });
 
-      /* ── 5. Skills grid ── */
+      /* ââ 5. Skills grid ââ */
       document.querySelectorAll('[data-cms-skills]').forEach(function (el) {
         var arr = get(el.dataset.cmsSkills);
         if (!Array.isArray(arr)) return;
@@ -294,7 +294,7 @@ const DATA = (typeof CMS_DATA !== 'undefined') ? CMS_DATA : FALLBACK_DATA;
         }).join('');
       });
 
-      /* ── 6. Project features ── */
+      /* ââ 6. Project features ââ */
       document.querySelectorAll('[data-cms-features]').forEach(function (el) {
         var arr = get(el.dataset.cmsFeatures);
         if (!Array.isArray(arr)) return;
@@ -306,7 +306,7 @@ const DATA = (typeof CMS_DATA !== 'undefined') ? CMS_DATA : FALLBACK_DATA;
         }).join('');
       });
 
-      /* ── 7. Experience list ── */
+      /* ââ 7. Experience list ââ */
       document.querySelectorAll('[data-cms-experience]').forEach(function (el) {
         var arr = get(el.dataset.cmsExperience);
         if (!Array.isArray(arr)) return;
@@ -324,7 +324,7 @@ const DATA = (typeof CMS_DATA !== 'undefined') ? CMS_DATA : FALLBACK_DATA;
         }).join('');
       });
 
-      /* ── 8. Education grid ── */
+      /* ââ 8. Education grid ââ */
       document.querySelectorAll('[data-cms-education]').forEach(function (el) {
         var arr = get(el.dataset.cmsEducation);
         if (!Array.isArray(arr)) return;
@@ -338,7 +338,7 @@ const DATA = (typeof CMS_DATA !== 'undefined') ? CMS_DATA : FALLBACK_DATA;
         }).join('');
       });
 
-      /* ── 9. Re-trigger reveal observers after hydration ── */
+      /* ââ 9. Re-trigger reveal observers after hydration ââ */
       if (typeof window.__initReveal === 'function') window.__initReveal();
 
     })();
